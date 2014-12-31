@@ -1,5 +1,7 @@
 <link rel="import" href="/bower_components/polymer/polymer.html">
 <link rel="import" href="marked-import.html">
+<script src="https://gist.githubusercontent.com/malthe/02350255c759d5478e89/raw/e2757c141dcfc617c6445fee5e2795f1ac0c8cac/dedent.js">
+</script>
 
 <!--
 Web Component wrapper for Markdown using Polymer.
@@ -42,7 +44,7 @@ or alternatively:
        */
 
       ready: function() {
-        this.text = this.text || this.trim(this.textContent);
+        this.text = this.text || dedent(this.textContent);
       },
       textChanged: function() {
         if (this.text === null) {
@@ -55,9 +57,9 @@ or alternatively:
       // Thanks Ryan Seddon! (https://github.com/ryanseddon/markdown-component)
       // Remove all leading/trailing whitespace so it's not confused as
       // a code block
-      trim: function(str) {
+      /*trim: function(str) {
         return str.replace(/^[^\S\n]+/gm,'');
-      }
+      }*/
     });
   </script>
 </polymer-element>
