@@ -1,8 +1,4 @@
-<link rel="import" href="/bower_components/polymer/polymer.html">
 <link rel="import" href="marked-import.html">
-<!--<script src="require.js"></script>-->
-<script src="/bower_components/underscore.string/dist/underscore.string.min.js">
-</script>
 
 <!--
 Web Component wrapper for Markdown using Polymer.
@@ -45,10 +41,7 @@ or alternatively:
        */
 
       ready: function() {
-        //require(["/bower_components/underscore.string/dedent.js"],
-          //function (dedent){
-            this.text = this.text || this.dedent(this.textContent);
-          //});
+        this.text = this.text || this.dedent(this.textContent);
       },
       textChanged: function() {
         if (this.text === null) {
@@ -58,12 +51,6 @@ or alternatively:
         }
         this.fire('mark-down-ready');
       },
-      // Thanks Ryan Seddon! (https://github.com/ryanseddon/markdown-component)
-      // Remove all leading/trailing whitespace so it's not confused as
-      // a code block
-      /*trim: function(str) {
-        return str.replace(/^[^\S\n]+/gm,'');
-      }*/
       
       /* Thanks to Malthe Borch (@malthe) for this dedent function:
       https://gist.github.com/malthe/02350255c759d5478e89 */
